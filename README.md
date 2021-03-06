@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# styled component
+- Simple `animation` using styled component
+- `dark mode` implementation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Contributor
+- GomiLim
+- oereo
+  
+<br>
+  
+## 구현할 기능 목록
+- [ ] Convention 및 구조 짜기 
+- [ ] 기차(png)가 달리는 것처럼 x축으로 애니메이션 주기 
+- [ ] 바퀴는 따로 분리하여 rotation 주기
+- [ ] 기차 연기 animation + opacity 조정
+- [ ] 토끼 등의 동물 캐릭터가 바구니 안에서 y 축으로 왕복 이동
+- [ ] 밤에는 전체적인 배경이 톤 다운 + 달은 제외
+- [ ] radio button value 에 따라 state 관리
+  
+<br>
 
-## Available Scripts
+## 예외 처리 목록
+- [ ] 화면의 크기가 다양할 경우
 
-In the project directory, you can run:
+<br>
 
-### `yarn start`
+## 요구사항
+- 절대 Master branch 에 바로 push 하지 않는다.(base setting은 제외입니당!)
+- Pull request 로 협업 및 review를 잔행한 뒤에 merge를 합니다.
+- commit message는 convention에 맞게 작성합니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Base 요구사항 -
+- 파일명: 파일명에는 PascalCase(대문자로 시작)를 사용합니다. 예), ReservationCard.jsx.
+- 참조명: React 컴포넌트의 참조 이름에는 PascalCase를 쓰고 그 인스턴스의 이름에는 camelCase(소문자로 시작)를 사용합니다.
+- 주석은 쓰는 것은 괜찮지만 짧은 한줄짜리 주석을 다는 것은 하지 말기 (최대한 변수나 method naming에 다 의미가 들어갈수 있도록 한다.)
+- 추가 참조사항 : https://firejune.com/1795/Airbnb%EC%9D%98+React%252FJSX+%EC%8A%A4%ED%83%80%EC%9D%BC+%EA%B0%80%EC%9D%B4%EB%93%9Cㅍ
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 프로그래밍 요구사항 -
+- 상태 관리는 전역 상태 대신 지역 상태로 처리하는 것을 권장한다. 전역 상태를 사용하려면 React Context API를 사용한다. (Redux, Mobx 대신 React Context만 쓸지 논의 필요)
+- 모든 styled 변수는 해당 컴포넌트 파일에 정의하는 것을 권장한다.
+- 다른 컴포넌트랑 같은 css를 공유할 땐 `export` 또는 `src/components/layouts`
+- DOM 트리가 깊어질수록 렌더링 속도가 느려지기 때문에, 외부 CSS 라이브러리에 있는 컴포넌트는 Wrapper 컴포넌트를 사용하지 않고 가능하면 해당 컴포넌트를 상속해 스타일을 적용하는 것을 권장한다.
+```javascript
+import styled from 'styled-components'
+import { ThirdPartyStyledComponent } from 'third-party-css-library'
 
-### `yarn test`
+const StyledComponent = styled(ThirdPartyStyledComponent)
+    margin: 1rem;
+    ...
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
