@@ -49,3 +49,5 @@ const StyledComponent = styled(ThirdPartyStyledComponent)
     ...
 ```
 
+### React-structure Reference
+- https://velog.io/@_junukim/%EB%82%98%EB%A7%8C%EC%9D%98-%EB%A6%AC%EC%95%A1%ED%8A%B8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%84%A4%EA%B3%84%ED%95%98%EA%B8%B0-3tk5rs8r52
