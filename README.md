@@ -9,11 +9,11 @@
 <br>
   
 ## 구현할 기능 목록
-- [x] Convention 및 구조 짜기 
-- [ ] 기차(png)가 달리는 것처럼 x축으로 애니메이션 주기 
-- [ ] 바퀴는 따로 분리하여 rotation 주기
+- [x] Convention 및 구조 짜기
+- [ ] 전체 div, 객체 size 정하기  
+- [ ] 객체(png)가 달리는 것처럼 x축으로 애니메이션 주기 
+- [ ] 바퀴 또는 움직임을 줄 수 있는 객체는 따로 분리하여 rotation 주기
 - [ ] 기차 연기 animation + opacity 조정
-- [ ] 토끼 등의 동물 캐릭터가 바구니 안에서 y 축으로 왕복 이동
 - [ ] 밤에는 전체적인 배경이 톤 다운 + 달은 제외
 - [ ] radio button value 에 따라 state 관리
   
