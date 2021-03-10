@@ -14,11 +14,11 @@ const HeaderStyle = styled.div`
   justify-content: flex-end;
   
 `
-const HeaderContainer = ({dayTime, setDayTime}) => {
+const HeaderContainer = ({dayTime, changeDayAndNight}) => {
   return (
     <HeaderStyle>
       <div className="toggle toggle--daynight">
-        <input type="checkbox" id="toggle--daynight" checked={dayTime} className="toggle--checkbox" onChange={()=>setDayTime(dayTime? false : true)}/>
+        <input type="checkbox" id="toggle--daynight" checked={dayTime} className="toggle--checkbox" onChange={changeDayAndNight}/>
         <label htmlFor="toggle--daynight" className="toggle--btn">
           <span className="toggle--feature"></span>
         </label>

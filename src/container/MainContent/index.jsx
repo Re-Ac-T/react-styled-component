@@ -11,9 +11,32 @@ import headlight from 'assets/images/headlight.png';
 const MoveBike = styled.div`
   position: absolute;
   bottom: 70px;
-  left: -100px;
+  left: 100px;
   width: 150px;
   height: 130px;
+
+  .move_bike_bubble {
+    position: absolute;
+    padding: 10px; 
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow:10xp 10px #000;
+    bottom: 100%;
+    min-width: 150px;
+    text-align: center;
+
+    &:after {
+      content:'';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 10px solid transparent;
+      border-top: 10px solid #fff;
+      border-right: 10px solid transparent;
+    }
+  }
 
   > img {
     position: absolute;
@@ -45,10 +68,12 @@ const MoveBike = styled.div`
     }
   }
 `
-const MainContent = ({dayTime}) => {
+const MainContent = ({dayTime, conversation, soliloquy}) => {
+  console.log(soliloquy)
   return (
-    <div className="main-content">
-      <MoveBike className="move_bike" dayTime={dayTime}>
+    <div className="main-content" style={{height: '100%'}}>
+      <MoveBike className="move_bike" dayTime={dayTime}  onClick={conversation}>
+        <p className="move_bike_bubble">{soliloquy.txt}</p>
         <img className="move_bike_haire" src={haire} alt=""/>
         <img className="move_bike_bike" src={bike} alt=""/>
         <img className="move_bike_box" src={box} alt=""/>

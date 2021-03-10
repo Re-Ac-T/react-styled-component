@@ -25,6 +25,7 @@ const HomeLayout = styled.div`
     background: url(${buildingLight_1});
     background-size: cover;
     opacity: ${props => props.backgroundBg? 0 : 1};
+    pointer-events: none;
   }
   &::after {
     content: '';
@@ -35,19 +36,45 @@ const HomeLayout = styled.div`
     background: url(${buildingLight_2});
     background-size: cover;
     opacity: ${props => props.backgroundBg? 0 : 1};
+    pointer-events: none;
   }
 
 `
 
 const HomeContainer = () => {
   const [ dayTime, setDayTime] = useState(true);
-  useEffect(()=> {
-    console.log(dayTime)
-  })
+  const [ soliloquy, setSoliloquy] = useState({txt: '가자가자', count: 0});
+  const talk = {
+    day: ['출근길이 막히네', '이제 출근하지만 벌써 집가고싶다...', '졸려', '. . .', '좋은 아침~'],
+    night: ['칼퇴근이다', '집까지 5분', '야식 뭐먹지', '길 안막혀서 좋다', '음주운전, 졸음운전 금지'],
+  }
+
+  const changeDayAndNight = () => {
+    setDayTime(dayTime? false : true)
+    setSoliloquy({txt: '가자가자', count: 0});
+  }
+
+  const stopConversation = () => {
+    if(soliloquy.count > 10 ) {
+      setSoliloquy({txt: '이제 운전 집중헤야해', count: 0});
+      return false;
+    } 
+  };
+  
+  const conversation = () => {
+    const random = Math.floor(Math.random() * 5);
+    if(dayTime) {
+      setSoliloquy({txt: talk.day[random], count: soliloquy.count+1});
+      stopConversation();
+    } else {
+      setSoliloquy({txt: talk.night[random], count: soliloquy.count+1});
+      stopConversation();
+    }
+  }
   return (
     <HomeLayout backgroundBg={dayTime}>
-      <HeaderContainer dayTime={dayTime} setDayTime={setDayTime} />
-      <MainContent dayTime={dayTime} />
+      <HeaderContainer dayTime={dayTime} changeDayAndNight={changeDayAndNight} />
+      <MainContent dayTime={dayTime} conversation={conversation} soliloquy={soliloquy}/>
     </HomeLayout>
   );
 };
