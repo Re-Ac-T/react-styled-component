@@ -16,17 +16,20 @@ const HomeLayout = styled.div`
   background: url(${props => props.backgroundBg ? dayBg : nightBg});
   background-size: cover;
   position: relative;
+
+  background-repeat: repeat-x;
+  background-position: 290%;
   
-  animation-name: myMove;
+  animation-name: backgroundMove;
   animation-iteration-count: infinite;
   animation-duration: 20s;
   
-  @keyframes myMove {
+  @keyframes backgroundMove {
     from {
       transform: translateX(0%);
     }
     to {
-      transform: translateX(-25%);
+      transform: translateX(-100%);
     }
   }
 

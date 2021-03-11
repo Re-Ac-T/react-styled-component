@@ -37,6 +37,10 @@ const MoveBike = styled.div`
       border-right: 10px solid transparent;
     }
   }
+  @keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+  }
 
   > img {
     position: absolute;
@@ -56,6 +60,7 @@ const MoveBike = styled.div`
     &.move_bike_rear_wheel {
       left: -5px;
       top: 94px;
+      animation: spin 4s infinite linear;
     }
     &.move_bike_front_wheel {
       left: 114px;
