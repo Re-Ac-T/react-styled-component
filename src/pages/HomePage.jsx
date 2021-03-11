@@ -5,7 +5,7 @@ import {HomeContainer} from 'container';
 const HomePage = () => {
   return (
     <>
-    <HomeContainer />
+      <HomeContainer />
     </>
   );
 };

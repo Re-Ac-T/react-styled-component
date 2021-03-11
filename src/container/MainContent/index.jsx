@@ -73,7 +73,7 @@ const MainContent = ({dayTime, conversation, soliloquy}) => {
   return (
     <div className="main-content" style={{height: '100%'}}>
       <MoveBike className="move_bike" dayTime={dayTime}  onClick={conversation}>
-        <p className="move_bike_bubble">{soliloquy.txt}</p>
+        <p className="move_bike_bubble">{soliloquy.message}</p>
         <img className="move_bike_haire" src={haire} alt=""/>
         <img className="move_bike_bike" src={bike} alt=""/>
         <img className="move_bike_box" src={box} alt=""/>
