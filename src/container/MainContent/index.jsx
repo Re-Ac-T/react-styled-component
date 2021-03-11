@@ -65,6 +65,7 @@ const MoveBike = styled.div`
     &.move_bike_front_wheel {
       left: 114px;
       top: 100px;
+      animation: spin 4s infinite linear;
     }
     &.move_bike_headlight {
       opacity: ${props => props.dayTime ? 0 : 1};
