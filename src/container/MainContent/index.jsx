@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import {SpeedoMeter} from 'components';
+
 import haire from 'assets/images/haire.png';
 import bike from 'assets/images/bike.png';
 import box from 'assets/images/box.png';
@@ -72,6 +74,7 @@ const MainContent = ({dayTime, conversation, soliloquy}) => {
   console.log(soliloquy)
   return (
     <div className="main-content" style={{height: '100%'}}>
+      <SpeedoMeter />
       <MoveBike className="move_bike" dayTime={dayTime}  onClick={conversation}>
         <p className="move_bike_bubble">{soliloquy.message}</p>
         <img className="move_bike_haire" src={haire} alt=""/>
