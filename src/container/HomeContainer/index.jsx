@@ -43,8 +43,9 @@ const HomeLayout = styled.div`
 `
 
 const HomeContainer = () => {
-  const [ dayTime, setDayTime] = useState(true);
-  const [ soliloquy, setSoliloquy] = useState({message: '가자가자', count: 0});
+  const [ dayTime, setDayTime ] = useState(true);
+  const [ speed, setSpeed ] = useState(0);
+  const [ soliloquy, setSoliloquy ] = useState({message: '가자가자', count: 0});
   const talk = {
     day: ['출근길이 막히네', '이제 출근하지만 벌써 집가고싶다...', '졸려', '. . .', '좋은 아침~'],
     night: ['칼퇴근이다', '집까지 5분', '야식 뭐먹지', '길 안막혀서 좋다', '음주운전, 졸음운전 금지'],
@@ -71,10 +72,25 @@ const HomeContainer = () => {
       stopConversation();
     }
   }
+
+  const MotorcycleAxel = () => {
+    speed < 160 && setSpeed((prev) =>  prev + 10);
+  }
+  const MotorcycleBrake = () => {
+    speed > 0 && setSpeed((prev) =>  prev - 10);
+  }
+
   return (
     <HomeLayout backgroundBg={dayTime}>
       <HeaderContainer dayTime={dayTime} changeDayAndNight={changeDayAndNight} />
-      <MainContent dayTime={dayTime} conversation={conversation} soliloquy={soliloquy}/>
+      <MainContent 
+        dayTime={dayTime} 
+        soliloquy={soliloquy} 
+        conversation={conversation} 
+        MotorcycleAxel={MotorcycleAxel}
+        MotorcycleBrake={MotorcycleBrake}
+        speed={speed}
+      />
     </HomeLayout>
   );
 };

@@ -16,14 +16,20 @@ const SpeedMeterStyle = styled.div`
   font-family: "digital";
   color: mintcream;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `
 
-const SpeedMeter = () => {
+const SpeedMeter = ({speed, MotorcycleAxel, MotorcycleBrake}) => {
+  console.log('스피드',speed)
   return (
     <SpeedMeterStyle>
-      0
+      <p>{speed}</p>
+      <div>
+        <span onClick={MotorcycleAxel}>up</span>
+        <span onClick={MotorcycleBrake}>down</span>
+      </div>
     </SpeedMeterStyle>
   );
 };

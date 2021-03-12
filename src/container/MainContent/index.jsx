@@ -70,11 +70,15 @@ const MoveBike = styled.div`
     }
   }
 `
-const MainContent = ({dayTime, conversation, soliloquy}) => {
+const MainContent = ({dayTime, conversation, soliloquy, speed, MotorcycleAxel,MotorcycleBrake}) => {
   console.log(soliloquy)
   return (
     <div className="main-content" style={{height: '100%'}}>
-      <SpeedoMeter />
+      <SpeedoMeter 
+        MotorcycleBrake={MotorcycleBrake}
+        MotorcycleAxel={MotorcycleAxel} 
+        speed={speed}
+      />
       <MoveBike className="move_bike" dayTime={dayTime}  onClick={conversation}>
         <p className="move_bike_bubble">{soliloquy.message}</p>
         <img className="move_bike_haire" src={haire} alt=""/>
