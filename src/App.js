@@ -18,9 +18,9 @@ function App() {
             {/*<HomePage/>*/}
             <Router>
                 <div>
-                    <Nav/>
                     <Route exact path="/" component={HomePage}/>
                     <Route path="/sub" component={SubPage}/>
+                    <Nav/>
                 </div>
             </Router>
         </div>
