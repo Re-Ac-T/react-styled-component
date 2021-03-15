@@ -19,7 +19,6 @@ const HeaderStyle = styled.div`
 const HeaderContainer = ({dayTime, changeDayAndNight}) => {
     return (
         <HeaderStyle>
-            <RadioButton/>
             <div className="toggle toggle--daynight">
                 <input type="checkbox" id="toggle--daynight" checked={dayTime} className="toggle--checkbox"
                        onChange={changeDayAndNight}/>

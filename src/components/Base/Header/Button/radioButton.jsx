@@ -5,7 +5,7 @@ const RadioButton = () => {
     return (
         <>
             <div className="md-radio md-radio-inline">
-                <input id="3" type="radio" name="g2" checked/>
+                <input id="3" type="radio" name="g2"/>
                 <label htmlFor="3">
                     프랑스
                 </label>
@@ -17,8 +17,8 @@ const RadioButton = () => {
                 </label>
             </div>
             <div className="md-radio md-radio-inline">
-                <input id="4" type="radio" name="g2"/>
-                <label htmlFor="4">
+                <input id="5" type="radio" name="g2"/>
+                <label htmlFor="5">
                     미국
                 </label>
             </div>
