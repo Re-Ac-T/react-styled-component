@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import './headerContainer.scss';
+import RadioButton from "../../components/Base/Header/Button/radioButton";
 
 const HeaderStyle = styled.div`
   position: fixed;
@@ -14,17 +15,20 @@ const HeaderStyle = styled.div`
   justify-content: flex-end;
   
 `
+
 const HeaderContainer = ({dayTime, changeDayAndNight}) => {
-  return (
-    <HeaderStyle>
-      <div className="toggle toggle--daynight">
-        <input type="checkbox" id="toggle--daynight" checked={dayTime} className="toggle--checkbox" onChange={changeDayAndNight}/>
-        <label htmlFor="toggle--daynight" className="toggle--btn">
-          <span className="toggle--feature"></span>
-        </label>
-      </div>
-    </HeaderStyle>
-  );
+    return (
+        <HeaderStyle>
+            <RadioButton/>
+            <div className="toggle toggle--daynight">
+                <input type="checkbox" id="toggle--daynight" checked={dayTime} className="toggle--checkbox"
+                       onChange={changeDayAndNight}/>
+                <label htmlFor="toggle--daynight" className="toggle--btn">
+                    <span className="toggle--feature"></span>
+                </label>
+            </div>
+        </HeaderStyle>
+    );
 };
 
 export default HeaderContainer;
