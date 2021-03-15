@@ -1,26 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import SubContent from "../SubContent";
 import RadioButton from "../../components/Base/Header/Button/radioButton";
 import styled from "styled-components";
+import romaBg from "../../assets/images/roma.png";
+import amsterdamBg from "../../assets/images/amsterdam.png";
 
-const HeaderStyle = styled.div`
-  position: fixed;
-  z-index: 1;
+const SubPageLayout = styled.div`
   width: 100%;
-  height: 100px;
-  padding: 10px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: flex-end;
+  height: 100vh;
+  background: url(${props => props.backgroundBg ? romaBg : amsterdamBg});
+  background-size: cover;
+  position: relative;
 `;
 
 const SubContainer = () => {
+    const [changeCity, setChangeCity] = useState(true);
     return (
         <>
-            <RadioButton/>
+        <RadioButton changeCity={changeCity} />
+        <SubPageLayout backgroundBg={changeCity}>
             <SubContent/>
+        </SubPageLayout>
         </>
     );
 };
+
 
 export default SubContainer;

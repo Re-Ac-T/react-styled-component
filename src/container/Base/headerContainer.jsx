@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import './headerContainer.scss';
-import RadioButton from "../../components/Base/Header/Button/radioButton";
 
 const HeaderStyle = styled.div`
   position: fixed;
