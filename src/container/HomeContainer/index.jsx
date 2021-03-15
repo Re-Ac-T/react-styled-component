@@ -11,51 +11,75 @@ import {MainContent, HeaderContainer} from 'container';
 
 
 const HomeLayout = styled.div`
-  width: 100%;
+  width: 1920px;
   height: 100vh;
   background: url(${props => props.backgroundBg ? dayBg : nightBg});
   background-size: cover;
   position: relative;
-
   background-repeat: repeat-x;
-  background-position: 290%;
-  
-  animation-name: backgroundMove;
-  animation-iteration-count: infinite;
-  animation-duration: 20s;
-  
+
+  animation: backgroundMove 10s infinite linear;
   @keyframes backgroundMove {
-    from {
-      transform: translateX(0%);
+    0% {
+      background-position: 0%;
     }
-    to {
-      transform: translateX(-100%);
+    100% {
+      background-position: 265%;
     }
   }
+`
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: url(${buildingLight_1});
-    background-size: cover;
-    opacity: ${props => props.backgroundBg ? 0 : 1};
-    pointer-events: none;
-  }
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: url(${buildingLight_2});
-    background-size: cover;
-    opacity: ${props => props.backgroundBg ? 0 : 1};
-    pointer-events: none;
-  }
+const HomeLight = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 100vh;
+  opacity: ${props => props.backgroundBg && '0 !important'};
+  background: url(${props => props.name === 'light_1' ? `${buildingLight_1}` : `${buildingLight_2}`}); 
+  background-size: cover;
+  background-repeat: repeat-x;
+  pointer-events: none;
+  animation: ${props => props.name === 'light_1' ? 'builddingLightMove_1' : 'builddingLightMove_2'} 10s infinite linear;
 
+  @keyframes builddingLightMove_1 {
+    0% {
+      background-position: 0%;
+      opacity: ${props => props.backgroundBg? 0 : 0};
+    }
+    1% {
+      opacity: ${props => props.backgroundBg? 0 : 1};
+    }
+    4% {
+      opacity: ${props => props.backgroundBg? 0 : 0};
+    }
+    7% {
+      opacity: ${props => props.backgroundBg? 0 : 1};
+    }
+    100% {
+      opacity: ${props => props.backgroundBg? 0 : 1};
+      background-position: 265%;
+    }
+  }
+  @keyframes builddingLightMove_2 {
+    0% {
+      background-position: 0%;
+      opacity: ${props => props.backgroundBg? 0 : 0};
+    }
+    2% {
+      opacity: ${props => props.backgroundBg? 0 : 1};
+    }
+    5% {
+      opacity: ${props => props.backgroundBg? 0 : 0};
+    }
+    7% {
+      opacity: ${props => props.backgroundBg? 0 : 1};
+    }
+    100% {
+      opacity: ${props => props.backgroundBg? 0 : 1};
+      background-position: 265%;
+    }
+  }
 `
 
 const HomeContainer = () => {
@@ -91,6 +115,8 @@ const HomeContainer = () => {
         <>
             <HeaderContainer dayTime={dayTime} changeDayAndNight={changeDayAndNight}/>
             <HomeLayout backgroundBg={dayTime}/>
+            <HomeLight backgroundBg={dayTime} name={'light_1'}/>
+            <HomeLight backgroundBg={dayTime} name={'light_2'}/>
             <MainContent dayTime={dayTime} conversation={conversation} soliloquy={soliloquy}/>
         </>
     );
